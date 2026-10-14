@@ -1,0 +1,3 @@
+node_modules/
+cypress/downloads/
+crud-api/data/data.test.json

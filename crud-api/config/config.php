@@ -1,0 +1,9 @@
+<?php
+
+// DATA_FILE permite apontar para outro arquivo (ex.: banco isolado para os testes Cypress).
+define('DATA_FILE', getenv('DATA_FILE') ?: __DIR__ . '/../data/data.json');
+
+$allowedOrigins = [
+    'http://0.0.0.0:8080', 'http://localhost:8080', 'http://127.0.0.1:8080',
+    'http://0.0.0.0:5500', 'http://localhost:5500', 'http://127.0.0.1:5500',
+];

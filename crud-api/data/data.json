@@ -1,0 +1,11 @@
+{
+    "nextId": 27,
+    "users": [
+        {
+            "name": "Gabriela Nunes",
+            "age": 31,
+            "email": "gabriela@teste.com",
+            "id": 26
+        }
+    ]
+}
