@@ -1,0 +1,7 @@
+{
+  "erroIdade": "Age must be between 1 and 150",
+  "confirmacaoExclusao": "Are you sure you want to delete this user?",
+  "tituloCadastro": "Create User",
+  "tituloEdicao": "Edit User",
+  "botaoAtualizar": "Update"
+}

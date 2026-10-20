@@ -1,0 +1,10 @@
+{
+  "ana": { "name": "Ana Souza", "age": 28, "email": "ana@teste.com" },
+  "bruno": { "name": "Bruno Lima", "age": 35, "email": "bruno@teste.com" },
+  "carla": { "name": "Carla Mendes", "age": 42, "email": "carla@teste.com" },
+  "diegoIdadeInvalida": { "name": "Diego Alves", "age": 200, "email": "diego@teste.com" },
+  "eva": { "name": "Eva Costa", "age": 30, "email": "eva@teste.com" },
+  "evaEditada": { "name": "Eva Costa Silva", "age": 30, "email": "eva@teste.com" },
+  "fabio": { "name": "Fabio Reis", "age": 25, "email": "fabio@teste.com" },
+  "gabriela": { "name": "Gabriela Nunes", "age": 31, "email": "gabriela@teste.com" }
+}
