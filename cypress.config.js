@@ -6,6 +6,11 @@ module.exports = defineConfig({
   videosFolder: 'evidencias/videos',
   screenshotsFolder: 'evidencias/screenshots',
 
+  // URL da API usada pelos comandos de apoio. Para outro ambiente: npx cypress run --env apiUrl=http://host:porta/api/users
+  env: {
+    apiUrl: 'http://localhost:8000/api/users',
+  },
+
   e2e: {
     // Frontend (Vite dev server, porta definida em crud-frontend-axios/vite.config.js).
     baseUrl: 'http://localhost:8080',
