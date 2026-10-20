@@ -5,7 +5,9 @@
   "description": "Testes E2E (Cypress) do CRUD de usuários — API PHP + frontend JS/Axios/Vite",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "verificar:esperas": "node scripts/verificar-esperas.js",
+    "cy:run:3x": "npm run verificar:esperas && npm run cy:run && npm run cy:run && npm run cy:run"
   },
   "devDependencies": {
     "cypress": "^16.1.1"
