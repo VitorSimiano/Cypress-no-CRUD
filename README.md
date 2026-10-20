@@ -77,12 +77,13 @@ npx cypress run
 npx cypress run --config baseUrl=http://localhost:5500
 ```
 
-Também existem os atalhos `npm run cy:open` e `npm run cy:run`.
+Também existem os atalhos `npm run cy:open` e `npm run cy:run`, além de `npm run verificar:esperas` (checa que não há esperas fixas) e `npm run cy:run:3x` (roda a suíte 3 vezes seguidas).
 
 ## Configuração
 
 - `cypress.config.js`: define o `baseUrl` do frontend (`http://localhost:8080`), a pasta de vídeos (`evidencias/videos`) e a de screenshots de falha (`evidencias/screenshots`).
-- `cypress/support/commands.js`: contém a URL da API (`http://localhost:8000/api/users`) e os comandos que preparam e conferem os dados (`resetUsers`, `seedUser`, `getUsersFromApi`).
+- `cypress.config.js` também guarda a URL da API em `env.apiUrl` (`http://localhost:8000/api/users`), que pode ser trocada com `--env apiUrl=...`.
+- `cypress/support/commands.js`: comandos que preparam e conferem os dados (`resetUsers`, `seedUser`, `getUsersFromApi`) e os passos reutilizáveis (`abrirComUsuarios`, `cadastrarUsuario`, `verificarCard`).
 - `cypress/support/e2e.js`: esvazia a base de usuários antes de cada teste.
 
 ## Estrutura dos testes
@@ -95,14 +96,20 @@ cypress/
     ct03-validacao-idade.cy.js
     ct04-editar-usuario.cy.js
     ct05-excluir-usuario.cy.js
+  fixtures/
+    usuarios.json        # dados dos testes (inclui o usuário inválido do CT03)
+    mensagens.json       # textos esperados da interface
   support/
-    commands.js
+    pages/UsersPage.js   # Page Object: único lugar com seletores data-cy
+    commands.js          # comandos de API e passos reutilizáveis
     e2e.js
+scripts/verificar-esperas.js   # falha se houver espera fixa nos testes
+REFATORACAO.md           # smells encontrados e soluções (atividade 2)
 docs/casos-de-teste.md   # descrição e resultado dos 5 casos
 evidencias/              # vídeos e print da execução do npx cypress run
 ```
 
-Os elementos da tela são selecionados **exclusivamente por `data-cy`** (por exemplo `[data-cy="btn-submit"]`). Os atributos foram adicionados em `crud-frontend-axios/src/index.html` e `crud-frontend-axios/src/scripts/dom/render.js`.
+Os elementos da tela são selecionados **exclusivamente por `data-cy`**, e os seletores ficam somente em `cypress/support/pages/UsersPage.js`. Os atributos foram adicionados em `crud-frontend-axios/src/index.html` e `crud-frontend-axios/src/scripts/dom/render.js`.
 
 ## Problemas comuns
 
