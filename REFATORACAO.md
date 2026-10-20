@@ -14,7 +14,7 @@ A suíte da A1 tem 5 testes (`cypress/e2e/ct01` a `ct05`) e já usava `data-cy` 
 | 6 | Preencher e enviar o formulário, repetido | CT02, CT03 | Mesma sequência copiada | Passo `cy.cadastrarUsuario(usuario)` |
 | 7 | Conferência do card repetida | CT01 (2x), CT02, CT04, CT05 | Mesma checagem de nome, idade e e-mail copiada | Passo `cy.verificarCard(indice, usuario)` |
 | 8 | Asserção dentro de callback que pode nunca rodar | CT05, `cy.on('window:confirm')` | Se o diálogo não abrisse, o teste passava sem checar a mensagem | `cy.stub()` no `window:confirm` e asserção `calledOnce` + `calledWith` depois do clique |
-| 9 | `within` sobre card que é recriado | CT02 e CT04 | O card é refeito após salvar, e o `within` podia apontar para um elemento antigo, o que exigia ordem cuidadosa das asserções | Os getters do Page Object partem de `cy.get()` e a consulta é refeita até passar |
+| 9 | Asserção dependente da ordem por causa do `within` | CT04 (havia o comentário "espera o card ser recriado"), e `within` também no CT01 e CT02 | O card é refeito após salvar, e o `within` podia apontar para um elemento antigo, o que exigia ordem cuidadosa das asserções | Os getters do Page Object partem de `cy.get()` e a consulta é refeita até passar |
 | 10 | Esperas fixas | nenhuma encontrada (`cy.wait(<tempo>)`, `setTimeout`, `sleep`) | Não havia o que remover | `npm run verificar:esperas` falha se alguma aparecer, e o `cy:run:3x` roda essa checagem antes dos testes |
 
 O sistema não tem login, então os três passos extraídos foram os que realmente se repetiam (itens 5, 6 e 7).
