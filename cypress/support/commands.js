@@ -4,7 +4,7 @@
 import usersPage from './pages/UsersPage';
 
 // A URL vem de cypress.config.js (env.apiUrl), nao fica fixa no codigo.
-const apiUrl = () => Cypress.env('apiUrl');
+const apiUrl = () => Cypress.expose('apiUrl');
 
 Cypress.Commands.add('resetUsers', () => {
   cy.request('GET', apiUrl()).then(({ body }) => {

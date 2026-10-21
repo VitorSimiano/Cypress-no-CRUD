@@ -6,8 +6,9 @@ module.exports = defineConfig({
   videosFolder: 'evidencias/videos',
   screenshotsFolder: 'evidencias/screenshots',
 
-  // URL da API usada pelos comandos de apoio. Para outro ambiente: npx cypress run --env apiUrl=http://host:porta/api/users
-  env: {
+  // URL da API usada pelos comandos de apoio (lida com Cypress.expose('apiUrl')).
+  // Para outro ambiente: npx cypress run --expose apiUrl=http://host:porta/api/users
+  expose: {
     apiUrl: 'http://localhost:8000/api/users',
   },
 
